@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaRegHeart } from 'react-icons/fa';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
+import BrowseCard from '../../Components/BrowseCard/BrowseCard';
 
 const BrowseListing = () => {
   TabTitle('Hood Happenings | Blogs');
@@ -8,7 +10,7 @@ const BrowseListing = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('/blogData.json')
+    fetch('http://localhost:3000/AllPosts')
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(err => console.error('Failed to load blog data:', err));
@@ -17,7 +19,7 @@ const BrowseListing = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12  lg::px-16">
       <div className="">
-        <div className="hero  py-3 lg:py-20">
+        {/* <div className="hero  py-3 lg:py-20">
           <div className="lg:hero-content flex-col lg:flex-row-reverse">
             <img
               src="https://i.ibb.co.com/Q7SXpsDZ/Untitled-design-4.png"
@@ -36,7 +38,7 @@ const BrowseListing = () => {
               <button className="btn btn-primary">Get Started</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="max-w-7xl mx-auto">
         <motion.h1
@@ -45,33 +47,12 @@ const BrowseListing = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Latest From Our Blog
+          Latest From Our Post
         </motion.h1>
 
         <div className="grid gap-10 md:grid-cols-3 sm:grid-cols-2">
-          {posts.map((post, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5 text-left">
-                <h3 className="text-xl font-semibold text-indigo-700 mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                <div className="text-sm text-gray-500">
-                  <span>{post.date}</span> &middot; <span>{post.author}</span>
-                </div>
-              </div>
-            </motion.div>
+          {posts.map(post => (
+            <BrowseCard post={post} key={post._id}></BrowseCard>
           ))}
         </div>
       </div>

@@ -25,14 +25,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/myListings">My Listings</NavLink>
       </li>
-
-      {user && (
-        <>
-          <li>
-            <NavLink to="/profile">Profile</NavLink>
-          </li>
-        </>
-      )}
     </>
   );
 
@@ -73,7 +65,7 @@ const Navbar = () => {
             className="cursor-pointer text-xl"
             onClick={() => navigate('/')}
           >
-            Hood Happenings
+            RoomMatch
           </button>
         </div>
         {/* for mobile */}

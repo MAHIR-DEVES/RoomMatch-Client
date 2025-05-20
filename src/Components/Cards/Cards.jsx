@@ -1,12 +1,24 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const Cards = ({ card }) => {
-  const { id, thumbnail, name, category, date, location } = card;
+  const {
+    _id,
+    title,
+    photo,
+    location,
+    rentAmount,
+    roomType,
+    description,
+    contactInfo,
+    email,
+    name,
+    availability,
+  } = card;
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/cardDetails/${id}`);
+    navigate(`/cardDetails/${_id}`);
   };
 
   return (
@@ -14,7 +26,7 @@ const Cards = ({ card }) => {
       <figure className="relative overflow-hidden">
         <img
           className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-          src={thumbnail}
+          src={photo}
           alt={name}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
@@ -37,7 +49,7 @@ const Cards = ({ card }) => {
               d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
             />
           </svg>
-          <span>{category}</span>
+          <span>{title}</span>
         </div>
 
         <div className="flex items-center gap-2 text-gray-600">
@@ -79,7 +91,7 @@ const Cards = ({ card }) => {
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <span>{date}</span>
+          <span>{title}</span>
         </div>
 
         <div className="pt-3">

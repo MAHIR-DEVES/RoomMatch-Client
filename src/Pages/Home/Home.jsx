@@ -1,11 +1,12 @@
 import React from 'react';
 import Slider from '../../Components/Slider/Slider';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Cards from '../../Components/Cards/Cards';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 
 const Home = () => {
   TabTitle('RoomMatch - Home');
+  const navigate = useNavigate();
   const data = useLoaderData();
 
   return (
@@ -28,14 +29,17 @@ const Home = () => {
         {/* Events Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map(card => (
-            <Cards card={card} key={card.id} />
+            <Cards card={card} key={card._id} />
           ))}
         </div>
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200">
-            View All Events
+          <button
+            onClick={() => navigate('/browseListing')}
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+          >
+            Browse All Post
             <svg
               className="ml-3 -mr-1 h-5 w-5"
               fill="currentColor"
