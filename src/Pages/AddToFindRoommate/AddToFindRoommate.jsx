@@ -62,7 +62,6 @@ const AddToFindRoommate = () => {
     const form = e.target;
     const formData = new FormData(form);
     const postData = Object.fromEntries(formData.entries());
-    console.log(postData);
     // send data form db
     fetch('http://localhost:3000/posts', {
       method: 'POST',

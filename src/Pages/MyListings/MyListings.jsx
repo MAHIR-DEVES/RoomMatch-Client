@@ -1,99 +1,152 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 import { motion } from 'framer-motion';
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const MyListings = () => {
-  TabTitle('RoomMatch - About');
+  TabTitle('RoomMatch - My Listings');
+  const { user } = use(AuthContext);
+  const [myPosts, setMyPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:3000/my-posts/${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+          setMyPosts(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching posts:', error);
+          setLoading(false);
+        });
+    }
+  }, [user]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-100">
+        <div className="text-indigo-800 text-xl">Loading your listings...</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12 md:px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold text-indigo-800 mb-8 text-center"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          About Us
-        </motion.h1>
-
-        <div className="lg:flex gap-5 py-3 lg:py-10">
-          <img
-            className="rounded-xl "
-            src="https://i.ibb.co.com/spJ5XzMG/istockphoto-499517325-612x612.jpg"
-            alt=""
-          />
-          <motion.div
-            className="bg-white p-8 rounded-xl shadow-lg  "
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-indigo-800 mb-4 text-center">
-              Our Mission: Creating Unforgettable Experiences
-            </h2>
-            <p className="text-gray-700 text-lg text-center max-w-4xl mx-auto">
-              We believe not just in hosting events, but in creating meaningful
-              connections. Growing better means aligning the success of your
-              event with the joy of your guests. Win-win!
-            </p>
-
-            <button className="border-2 border-indigo-600 text-indigo-600 font-semibold px-8 py-3 rounded-xl hover:bg-indigo-50 transition w-full mt-2 lg:mt-12">
-              Explore More
-            </button>
-          </motion.div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {[
-            {
-              title: 'Creative Vision',
-              text: 'We design every event like a masterpiece, blending aesthetics and innovation.',
-              icon: '🎨',
-            },
-            {
-              title: 'Flawless Execution',
-              text: 'From logistics to ambiance, every detail is handled with care.',
-              icon: '🛠️',
-            },
-            {
-              title: 'Client-Centric',
-              text: 'Your satisfaction is our mission. Every event is uniquely yours.',
-              icon: '🤝',
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 * i }}
-            >
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-indigo-700">
-                {item.title}
-              </h3>
-              <p className="text-gray-600">{item.text}</p>
-            </motion.div>
-          ))}
-        </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          className="mt-16 bg-indigo-600 text-white py-8 px-6 rounded-xl shadow-lg"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-bold mb-2 text-center">
-            Let's Make Your Next Event Unforgettable
-          </h2>
-          <p className="mb-4 text-center">
-            Ready to get started? Contact our team today!
-          </p>
-          <div className="text-center">
-            <button className="bg-white text-indigo-700 font-semibold px-6 py-2 rounded-full hover:bg-gray-100 transition">
-              Get in Touch
-            </button>
-          </div>
+          <h1 className="text-3xl font-bold text-indigo-800 mb-6">
+            My Listings
+          </h1>
+
+          {myPosts.length === 0 ? (
+            <div className="bg-white rounded-lg shadow p-6 text-center">
+              <p className="text-gray-600">
+                You haven't created any listings yet.
+              </p>
+            </div>
+          ) : (
+            <div className="bg-white shadow overflow-hidden rounded-lg">
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-indigo-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                        Title
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                        Price
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                        Location
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                        Room Type
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {myPosts.map(post => (
+                      <motion.tr
+                        key={post._id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        whileHover={{
+                          backgroundColor: 'rgba(99, 102, 241, 0.05)',
+                        }}
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0 h-10 w-10">
+                              <img
+                                className="h-10 w-10 rounded-full object-cover"
+                                src={
+                                  post.photo ||
+                                  'https://via.placeholder.com/150'
+                                }
+                                alt={post.title}
+                              />
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-gray-900">
+                                {post.title}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {post.description?.substring(0, 30)}...
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900 font-medium">
+                            ${post.rentAmount || 'N/A'}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">
+                            {post.location || 'N/A'}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span
+                            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                            ${
+                              post.availability === 'available'
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-yellow-100 text-yellow-800'
+                            }`}
+                          >
+                            {post.roomType || 'unknown'}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                          <button className="text-indigo-600 hover:text-indigo-900 mr-4 cursor-pointer">
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handelDelete(post._id)}
+                            className="text-red-600 hover:text-red-900 cursor-pointer"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </div>
