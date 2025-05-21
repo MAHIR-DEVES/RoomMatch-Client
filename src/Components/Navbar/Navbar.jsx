@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -68,6 +69,7 @@ const Navbar = () => {
             RoomMatch
           </button>
         </div>
+
         {/* for mobile */}
         <div className=" hidden lg:flex ">
           <ul className="menu-horizontal px-1 navLink">{links}</ul>
@@ -110,7 +112,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="flex hidden lg:flex">
+        <div className="flex hidden lg:flex gap-2">
           <div className="flex justify-center items-center gap-4 mr-5">
             {user && (
               <>
@@ -146,6 +148,9 @@ const Navbar = () => {
                 Login
               </button>
             )}
+          </div>
+          <div className="">
+            <ThemeToggle></ThemeToggle>
           </div>
         </div>
       </div>
