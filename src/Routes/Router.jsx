@@ -12,6 +12,7 @@ import ErrorPage from '../Pages/Error/ErrorPage';
 import AddToFindRoommate from '../Pages/AddToFindRoommate/AddToFindRoommate';
 import BrowseListing from '../Pages/Browse/BrowseListing';
 import MyListings from '../Pages/MyListings/MyListings';
+import UpdatePosts from '../Pages/UpadtePost/UpdatePosts';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,16 @@ const router = createBrowserRouter([
             <AddToFindRoommate></AddToFindRoommate>
           </PrivateRoute>
         ),
+      },
+      {
+        path: '/updatePosts/:id',
+        element: (
+          <PrivateRoute>
+            <UpdatePosts></UpdatePosts>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/posts/${params.id}`),
       },
       {
         path: '/cardDetails/:id',

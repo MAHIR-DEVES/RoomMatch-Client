@@ -1,7 +1,12 @@
 import { useLoaderData } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa';
 
 const CardDetails = () => {
   const post = useLoaderData();
+
+  const handleLike = id => {
+    console.log(id);
+  };
 
   return (
     <div className="max-w-5xl mx-auto my-10 p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
@@ -187,6 +192,11 @@ const CardDetails = () => {
               </div>
             </div>
           </div>
+          <button onClick={() => handleLike(post._id)}>
+            <span className="flex items-center justify-center gap-5 text-2xl cursor-pointer">
+              <FaRegHeart size={25} color="red" /> 0
+            </span>
+          </button>
         </div>
       </div>
     </div>
