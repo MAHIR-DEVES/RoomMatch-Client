@@ -19,6 +19,7 @@ const UpdatePosts = () => {
     name,
     availability,
   } = useLoaderData();
+  console.log(rentAmount);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -159,7 +160,7 @@ const UpdatePosts = () => {
               type="number"
               id="rentAmount"
               name="rentAmount"
-              value={formData.rentAmount}
+              defaultValue={rentAmount}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required

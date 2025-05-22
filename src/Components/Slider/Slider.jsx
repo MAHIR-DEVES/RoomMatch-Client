@@ -11,7 +11,7 @@ import { Pagination, Navigation, HashNavigation } from 'swiper/modules';
 
 import slide1 from '../../assets/slide 1.jpg';
 import slide2 from '../../assets/slide2.jpg';
-import slide3 from '../../assets/slide3.jpg';
+import TextAnimation from './TextAnimation';
 
 const Slider = () => {
   return (
@@ -39,11 +39,9 @@ const Slider = () => {
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center z-10 text-white p-8">
-            <h2
-              style={{ fontFamily: 'cursive' }}
-              className="text-2xl md:text-5xl font-bold "
-            >
-              Find Your Perfect Roommate in Minutes!{' '}
+            <h2 style={{ fontFamily: 'cursive' }}>
+              <TextAnimation></TextAnimation>
+
               <p className="text-sm md:text-2xl md:mt-10">
                 Whether you're moving in or renting out, we make matching easy
                 and stress-free.
