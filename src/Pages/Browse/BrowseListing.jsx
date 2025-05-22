@@ -10,7 +10,7 @@ const BrowseListing = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/AllPosts')
+    fetch('https://assigment-10-server-two.vercel.app/AllPosts')
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(err => console.error('Failed to load blog data:', err));

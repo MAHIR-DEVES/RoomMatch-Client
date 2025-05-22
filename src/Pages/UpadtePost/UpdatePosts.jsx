@@ -77,13 +77,16 @@ const UpdatePosts = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3000/posts/${_id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://assigment-10-server-two.vercel.app/posts/${_id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
 

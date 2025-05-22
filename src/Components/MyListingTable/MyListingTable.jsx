@@ -15,7 +15,7 @@ const MyListingTable = ({ post, setMyPosts, myPosts }) => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/posts/${id}`, {
+        fetch(`https://assigment-10-server-two.vercel.app/posts/${id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())

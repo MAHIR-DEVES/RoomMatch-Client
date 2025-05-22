@@ -13,7 +13,7 @@ const MyListings = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-posts/${user.email}`)
+      fetch(`https://assigment-10-server-two.vercel.app/my-posts/${user.email}`)
         .then(res => res.json())
         .then(data => {
           setMyPosts(data);

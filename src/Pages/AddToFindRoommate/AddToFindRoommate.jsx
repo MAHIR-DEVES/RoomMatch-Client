@@ -63,7 +63,7 @@ const AddToFindRoommate = () => {
     const formData = new FormData(form);
     const postData = Object.fromEntries(formData.entries());
     // send data form db
-    fetch('http://localhost:3000/posts', {
+    fetch('https://assigment-10-server-two.vercel.app/posts', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

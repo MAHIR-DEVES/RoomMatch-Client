@@ -54,6 +54,177 @@ const Home = () => {
           </button>
         </div>
       </section>
+      <section>
+        <div className="py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Featured Restaurants
+              </h2>
+              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                Discover top-rated venues for your next event or dining
+                experience
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Restaurant Card 1 */}
+              <div className="group relative">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="Fine dining restaurant"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">
+                      <a href="#">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        The Gourmet Experience
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Fine Dining • $$$
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="ml-1 text-gray-600">4.9</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Restaurant Card 2 */}
+              <div className="group relative">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="Italian restaurant"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">
+                      <a href="#">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        Bella Italia
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">Italian • $$</p>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="ml-1 text-gray-600">4.7</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Restaurant Card 3 */}
+              <div className="group relative">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGRlc2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                    alt="Asian fusion restaurant"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">
+                      <a href="#">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        East Meets West
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Asian Fusion • $$$
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="ml-1 text-gray-600">4.8</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Restaurant Card 4 */}
+              <div className="group relative">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                    alt="Steakhouse"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">
+                      <a href="#">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        The Prime Cut
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Steakhouse • $$$$
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span className="ml-1 text-gray-600">4.9</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => navigate('/restaurants')}
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+              >
+                View All Restaurants
+                <svg
+                  className="ml-3 -mr-1 h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="relative my-10 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img

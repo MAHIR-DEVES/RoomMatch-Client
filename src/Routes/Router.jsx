@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch('http://localhost:3000/posts'),
+        loader: () => fetch('https://assigment-10-server-two.vercel.app/posts'),
         hydrateFallbackElement: <Loading></Loading>,
       },
 
@@ -64,7 +64,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/posts/${params.id}`),
+          fetch(
+            `https://assigment-10-server-two.vercel.app/posts/${params.id}`
+          ),
       },
       {
         path: '/cardDetails/:id',
@@ -74,7 +76,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/posts/${params.id}`),
+          fetch(
+            `https://assigment-10-server-two.vercel.app/posts/${params.id}`
+          ),
       },
       {},
     ],
