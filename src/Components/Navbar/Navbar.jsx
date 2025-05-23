@@ -82,7 +82,7 @@ const Navbar = () => {
             {user && (
               <>
                 <img
-                  className="w-10 rounded-full mr-1"
+                  className="w-10 rounded-full mr-4"
                   src={user.photoURL || ''}
                   alt="Profile"
                   data-tooltip-id="mobile-profile-tooltip"
@@ -113,6 +113,7 @@ const Navbar = () => {
                 Login
               </button>
             )}
+            <ThemeToggle></ThemeToggle>
           </div>
         </div>
         <div className="flex hidden lg:flex gap-2">
@@ -152,7 +153,7 @@ const Navbar = () => {
               </button>
             )}
           </div>
-          <div className="">
+          <div className="hidden lg:flex">
             <ThemeToggle></ThemeToggle>
           </div>
         </div>
