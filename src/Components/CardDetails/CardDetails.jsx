@@ -1,21 +1,24 @@
 import { useLoaderData } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const CardDetails = () => {
   TabTitle('RoomMatch - Card Details');
+  const user = use(AuthContext);
   const post = useLoaderData();
+
   const [showContact, setShowContact] = useState(false);
   const [likeCount, setLikeCount] = useState(post.likeCount || 0);
-  const [isLiked, setIsLiked] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleLike = async () => {
     try {
+      if (user?.user?.email === post.email) return;
       const newLikeCount = likeCount + 1;
       setLikeCount(newLikeCount);
-      setIsLiked(true);
+
       setIsModalOpen(true);
 
       const response = await fetch(
@@ -29,11 +32,10 @@ const CardDetails = () => {
       );
 
       const data = await response.json();
-      console.log(data);
 
       if (!response.ok || !data.success) {
         setLikeCount(likeCount);
-        setIsLiked(false);
+
         throw new Error(data.message || 'Failed to update like count');
       }
 
@@ -41,6 +43,7 @@ const CardDetails = () => {
     } catch (error) {
       console.error('Error updating like:', error);
     }
+    setShowContact(true);
   };
 
   return (
@@ -146,18 +149,7 @@ const CardDetails = () => {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  {showContact ? (
-                    <span className="text-gray-700 dark:text-gray-200">
-                      {post.contactInfo}
-                    </span>
-                  ) : (
-                    <button
-                      onClick={() => setShowContact(true)}
-                      className="link link-primary"
-                    >
-                      Show Contact
-                    </button>
-                  )}
+                  {showContact ? post.contactInfo : 'Show Contact'}
                 </div>
 
                 {/* Posted By */}
