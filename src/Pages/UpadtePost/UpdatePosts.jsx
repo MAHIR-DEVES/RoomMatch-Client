@@ -7,7 +7,7 @@ import { useLoaderData, useNavigate } from 'react-router';
 const UpdatePosts = () => {
   const { user } = use(AuthContext);
   const loadedPost = useLoaderData();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: loadedPost.title,
@@ -85,6 +85,7 @@ const UpdatePosts = () => {
           title: 'Success',
           text: 'Post updated successfully!',
         });
+        navigate('/myListings');
       } else {
         Swal.fire({
           icon: 'info',
