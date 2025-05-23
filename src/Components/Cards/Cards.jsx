@@ -2,19 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 
 const Cards = ({ card }) => {
-  const {
-    _id,
-    title,
-    photo,
-    location,
-    rentAmount,
-    roomType,
-    description,
-    contactInfo,
-    email,
-    name,
-    availability,
-  } = card;
+  const { _id, title, photo, location, name } = card;
 
   const navigate = useNavigate();
   const handleClick = () => {

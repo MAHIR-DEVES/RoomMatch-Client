@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 
@@ -29,6 +29,7 @@ const CardDetails = () => {
       );
 
       const data = await response.json();
+      console.log(data);
 
       if (!response.ok || !data.success) {
         setLikeCount(likeCount);
@@ -71,13 +72,9 @@ const CardDetails = () => {
                     className="p-1 focus:outline-none"
                     aria-label="Like this post"
                   >
-                    <FaRegHeart
-                      className={`text-2xl ${
-                        isLiked ? 'text-red-500' : 'text-gray-500'
-                      } hover:text-red-500 transition-colors`}
-                    />
+                    <FaHeart size={25} color="red" />
                   </button>
-                  <span className="text-gray-700 dark:text-gray-200">
+                  <span className="text-gray-700 dark:text-gray-200 font-semibold text-xl">
                     {likeCount}
                   </span>
                 </div>

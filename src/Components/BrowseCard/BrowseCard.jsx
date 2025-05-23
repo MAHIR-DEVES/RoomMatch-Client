@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 
 const BrowseCard = ({ post, index }) => {
@@ -31,7 +31,12 @@ const BrowseCard = ({ post, index }) => {
             <p className="text-gray-600 text-sm mb-4">{post.location}</p>
             <span>{post.rentAmount}</span> &middot; <span>{post.roomType}</span>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-center items-center">
+            <span className="flex gap-2">
+              {' '}
+              <FaHeart size={25} color="red" />{' '}
+              <p className=" font-semibold">{post.likeCount}</p>
+            </span>
             <button onClick={handleClick} className="btn btn-primary mt-2">
               Details
             </button>
