@@ -22,7 +22,7 @@ const Cards = ({ card }) => {
   };
 
   return (
-    <div className="card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+    <div className="card  bg-white dark:bg-gray-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 ">
       <figure className="relative overflow-hidden">
         <img
           className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
@@ -34,7 +34,7 @@ const Cards = ({ card }) => {
         </div>
       </figure>
       <div className="p-5 space-y-3">
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-white">
           <svg
             className="w-5 h-5"
             fill="none"
@@ -52,7 +52,7 @@ const Cards = ({ card }) => {
           <span>{title}</span>
         </div>
 
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-white">
           <svg
             className="w-5 h-5"
             fill="none"
@@ -76,7 +76,7 @@ const Cards = ({ card }) => {
           <span>{location}</span>
         </div>
 
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-white">
           <svg
             className="w-5 h-5"
             fill="none"

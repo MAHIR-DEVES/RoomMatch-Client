@@ -10,18 +10,18 @@ const Home = () => {
   const data = useLoaderData();
 
   return (
-    <div className="bg-gray-50">
+    <div className="  bg-white dark:bg-gray-800 ">
       <Slider />
 
       <section className="py-12 lg:px-4 sm:px-6  lg:w-10/12 mx-auto ">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12  bg-white dark:bg-gray-800">
           <span className="inline-block px-3 py-1 text-sm font-semibold text-red-600 bg-red-100 rounded-full mb-4">
             Restaurants Events
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold dark:text-white text-black mb-4">
             Available Post Section
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg dark:text-white text-blackmax-w-2xl mx-auto">
             Explore the most popular restaurant posts in your area
           </p>
         </div>
@@ -55,13 +55,13 @@ const Home = () => {
         </div>
       </section>
       <section>
-        <div className="py-16 bg-white">
+        <div className="py-16 bg-white dark:bg-gray-800 ">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-extrabold dark:text-white text-black sm:text-4xl">
                 Featured Restaurants
               </h2>
-              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+              <p className="mt-3 max-w-2xl mx-auto text-xl dark:text-white text-black sm:mt-4">
                 Discover top-rated venues for your next event or dining
                 experience
               </p>
@@ -69,8 +69,8 @@ const Home = () => {
 
             <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Restaurant Card 1 */}
-              <div className="group relative">
-                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+              <div className="group relative ">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none ">
                   <img
                     src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                     alt="Fine dining restaurant"
@@ -79,7 +79,7 @@ const Home = () => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-medium dark:text-white text-black">
                       <a href="#">
                         <span aria-hidden="true" className="absolute inset-0" />
                         The Gourmet Experience
@@ -113,7 +113,7 @@ const Home = () => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-medium dark:text-white text-black">
                       <a href="#">
                         <span aria-hidden="true" className="absolute inset-0" />
                         Bella Italia
@@ -145,7 +145,7 @@ const Home = () => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-medium dark:text-white text-black">
                       <a href="#">
                         <span aria-hidden="true" className="absolute inset-0" />
                         East Meets West
@@ -179,7 +179,7 @@ const Home = () => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900">
+                    <h3 className="text-lg font-medium dark:text-white text-black">
                       <a href="#">
                         <span aria-hidden="true" className="absolute inset-0" />
                         The Prime Cut

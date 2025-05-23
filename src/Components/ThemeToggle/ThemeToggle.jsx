@@ -1,26 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
 
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+    const root = window.document.documentElement;
+
+    // Toggle the dark class
+    if (theme === "dark") {
+      root.classList.add("dark");
+      root.classList.remove("light");
+      root.style.colorScheme = "dark";
+    
     } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
+      root.classList.remove("dark");
+      root.classList.add("light");
+      root.style.colorScheme = "light";
+     
     }
-  }, [isDark]);
+
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   return (
     <button
       className="p-2 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white"
-      onClick={() => setIsDark(!isDark)}
+      onClick={toggleTheme}
     >
-      {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
     </button>
   );
 };
