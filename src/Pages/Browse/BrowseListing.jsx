@@ -5,7 +5,7 @@ import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 import BrowseCard from '../../Components/BrowseCard/BrowseCard';
 
 const BrowseListing = () => {
-  TabTitle('Hood Happenings | Blogs');
+  TabTitle('Hood Happenings - Browse Listing');
 
   const [posts, setPosts] = useState([]);
 

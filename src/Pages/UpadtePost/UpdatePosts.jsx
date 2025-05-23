@@ -2,11 +2,12 @@ import React, { use, useState } from 'react';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const UpdatePosts = () => {
   const { user } = use(AuthContext);
   const loadedPost = useLoaderData();
+  // const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: loadedPost.title,
@@ -101,7 +102,7 @@ const UpdatePosts = () => {
     }
   };
 
-  TabTitle('Hood Happenings | Contact ');
+  TabTitle('Hood Happenings - Update data ');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 md:px-6 py-12 flex flex-col justify-center">

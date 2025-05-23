@@ -25,17 +25,17 @@ const BrowseCard = ({ post, index }) => {
         <h3 className="text-xl font-semibold text-indigo-700 mb-2">
           {post.title}
         </h3>
-        <p className="text-gray-600 text-sm mb-4">{post.location}</p>
-        <div className="text-sm text-gray-500">
-          <span>{post.rentAmount}</span> &middot; <span>{post.roomType}</span>
-        </div>
+
         <div className="flex justify-between items-center">
-          <button onClick={handleClick} className="btn btn-primary mt-2">
-            Details
-          </button>
-          <button className=" ">
-            <FaRegHeart size={25} color="red" />
-          </button>
+          <div className="text-sm text-gray-500">
+            <p className="text-gray-600 text-sm mb-4">{post.location}</p>
+            <span>{post.rentAmount}</span> &middot; <span>{post.roomType}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <button onClick={handleClick} className="btn btn-primary mt-2">
+              Details
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

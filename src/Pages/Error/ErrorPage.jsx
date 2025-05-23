@@ -9,17 +9,19 @@ const ErrorPage = () => {
   if (isRouteErrorResponse(error)) {
     return (
       <div className="min-h-screen flex  justify-center items-center text-center">
-        <div className="bg-white px-50 py-15">
-          <h1 className="font-bold text-4xl">
-            {error.status} - {error.statusText}
-          </h1>
+        <div className="p-20 bg-white">
+          <div className="bg-white px-50 py-15">
+            <h1 className="font-bold text-4xl">
+              {error.status} - {error.statusText}
+            </h1>
 
-          <p className="font-semibold text-xl">
-            {error.data?.message || 'Something went wrong.'}
-          </p>
-          <button onClick={() => navigate('/')} className="btn w-full mt-10">
-            Back To Home <FaHome size={20}></FaHome>
-          </button>
+            <p className="font-semibold text-xl">
+              {error.data?.message || 'Something went wrong.'}
+            </p>
+            <button onClick={() => navigate('/')} className="btn w-full mt-10">
+              Back To Home <FaHome size={20}></FaHome>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -27,12 +29,14 @@ const ErrorPage = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <h1>Oops!</h1>
-      <p>Something went wrong.</p>
-      <pre>{error.message || JSON.stringify(error)}</pre>
-      <button onClick={() => navigate('/')} className="btn w-full mt-10">
-        Back To Home <FaHome size={20}></FaHome>
-      </button>
+      <div className="">
+        <h1>Oops!</h1>
+        <p>Something went wrong.</p>
+        <pre>{error.message || JSON.stringify(error)}</pre>
+        <button onClick={() => navigate('/')} className="btn w-full mt-10">
+          Back To Home <FaHome size={20}></FaHome>
+        </button>
+      </div>
     </div>
   );
 };

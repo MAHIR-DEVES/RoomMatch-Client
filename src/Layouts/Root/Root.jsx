@@ -10,7 +10,7 @@ const Root = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="w-11/12 mx-auto min-h-screen bg-white dark:bg-gray-800 text-black dark:text-white transition-colors duration-300">
+      <div className="w-11/12 mx-auto min-h-screen  text-black  transition-colors duration-300">
         {state == 'loading' ? <Loading /> : <Outlet></Outlet>}
       </div>
       <Footer></Footer>
