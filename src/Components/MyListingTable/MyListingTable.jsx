@@ -36,9 +36,6 @@ const MyListingTable = ({ post, setMyPosts, myPosts }) => {
 
   //
 
-  const handelEdit = () => {
-    console.log('edit');
-  };
   return (
     <motion.tr
       key={post._id}

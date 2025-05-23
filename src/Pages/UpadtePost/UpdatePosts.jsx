@@ -6,32 +6,20 @@ import { useLoaderData } from 'react-router';
 
 const UpdatePosts = () => {
   const { user } = use(AuthContext);
-  const {
-    _id,
-    title,
-    photo,
-    location,
-    rentAmount,
-    roomType,
-    description,
-    contactInfo,
-    email,
-    name,
-    availability,
-  } = useLoaderData();
-  console.log(rentAmount);
+  const loadedPost = useLoaderData();
 
   const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    rentAmount: '',
-    roomType: 'Single',
-    lifestylePreferences: [],
-    description: '',
-    contactInfo: '',
-    email: '',
-    name: '', // Changed from password to name
-    availability: 'available',
+    title: loadedPost.title,
+    photo: loadedPost.photo,
+    location: loadedPost.location,
+    rentAmount: loadedPost.rentAmount,
+    roomType: loadedPost.roomType,
+    lifestylePreferences: loadedPost.lifestylePreferences || [],
+    description: loadedPost.description,
+    contactInfo: loadedPost.contactInfo,
+    email: user?.email || loadedPost.email,
+    name: user?.displayName || loadedPost.name,
+    availability: loadedPost.availability,
   });
 
   const roomTypes = ['Single', 'Shared', 'Studio', 'Other'];
@@ -78,7 +66,7 @@ const UpdatePosts = () => {
 
     try {
       const response = await fetch(
-        `https://assigment-10-server-two.vercel.app/posts/${_id}`,
+        `https://assigment-10-server-two.vercel.app/posts/${loadedPost._id}`,
         {
           method: 'PUT',
           headers: {
@@ -117,8 +105,7 @@ const UpdatePosts = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 md:px-6 py-12 flex flex-col justify-center">
-      {/*  */}
-      <div className="w-6xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div className=" md:w-8/12 mx-auto p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Update Roommate Listing Form
         </h2>
@@ -131,7 +118,7 @@ const UpdatePosts = () => {
               type="text"
               id="title"
               name="title"
-              defaultValue={title}
+              value={formData.title}
               onChange={handleChange}
               placeholder="Looking for a roommate in NYC"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -163,7 +150,7 @@ const UpdatePosts = () => {
               type="number"
               id="rentAmount"
               name="rentAmount"
-              defaultValue={rentAmount}
+              value={formData.rentAmount}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -199,7 +186,6 @@ const UpdatePosts = () => {
                   <input
                     type="checkbox"
                     id={`pref-${option}`}
-                    // checked
                     value={option}
                     checked={formData.lifestylePreferences.includes(option)}
                     onChange={handleCheckboxChange}
@@ -246,22 +232,23 @@ const UpdatePosts = () => {
               required
             />
           </div>
-          {/* photo */}
+
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="name">
+            <label className="block text-gray-700 mb-2" htmlFor="photo">
               Your photo
             </label>
             <input
               type="text"
-              id="name"
+              id="photo"
               name="photo"
+              value={formData.photo}
+              onChange={handleChange}
               placeholder="Your photo Url"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
-          {/* Name Field (Replaced Password) */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-2" htmlFor="name">
               Your Name
@@ -270,15 +257,13 @@ const UpdatePosts = () => {
               type="text"
               id="name"
               name="name"
-              value={user?.displayName}
-              onChange={handleChange}
+              value={formData.name}
               placeholder="John Doe"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
-          {/* Email Field */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-2" htmlFor="email">
               Email
@@ -287,11 +272,12 @@ const UpdatePosts = () => {
               type="email"
               id="email"
               name="email"
-              value={user?.email}
+              value={user.email}
               onChange={handleChange}
               placeholder="your@email.com"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              readOnly
             />
           </div>
 
@@ -327,12 +313,11 @@ const UpdatePosts = () => {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
-            Add Listing
+            Update Listing
           </button>
         </form>
       </div>
 
-      {/* Purple footer bar mimic */}
       <div className="h-20 bg-purple-700 mt-16 rounded-t-xl text-2xl text-white flex items-center justify-center">
         <h2 className="font-bold" style={{ fontFamily: '-moz-initial' }}>
           RoomMatch{' '}

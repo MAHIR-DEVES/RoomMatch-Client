@@ -53,7 +53,10 @@ const Navbar = () => {
               role="button"
               className=" lg:hidden cursor-pointer "
             >
-              <GiHamburgerMenu size={29} />{' '}
+              <GiHamburgerMenu
+                size={29}
+                className="dark:text-white text-black"
+              />{' '}
             </div>
             <ul
               tabIndex={0}
@@ -72,7 +75,7 @@ const Navbar = () => {
 
         {/* for mobile */}
         <div className=" hidden lg:flex ">
-          <ul className="menu-horizontal px-1 navLink">{links}</ul>
+          <ul className="menu-horizontal px-1 navLink ">{links}</ul>
         </div>
         <div className="flex  justify-between lg:hidden w-36 ">
           <div className="flex justify-center items-center ">

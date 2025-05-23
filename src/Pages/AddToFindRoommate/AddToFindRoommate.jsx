@@ -89,7 +89,7 @@ const AddToFindRoommate = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 md:px-6 py-12 flex flex-col justify-center">
       {/*  */}
-      <div className="w-6xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div className="w-full md:w-6/12 mx-auto p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Roommate Listing Form
         </h2>

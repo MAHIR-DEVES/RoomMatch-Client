@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import MyListingTable from '../../Components/MyListingTable/MyListingTable';
+import { toast } from 'react-toastify';
 
 const MyListings = () => {
   TabTitle('RoomMatch - My Listings');
@@ -20,7 +21,7 @@ const MyListings = () => {
           setLoading(false);
         })
         .catch(error => {
-          console.error('Error fetching posts:', error);
+          toast.error('Error fetching posts:', error);
           setLoading(false);
         });
     }
@@ -36,7 +37,7 @@ const MyListings = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto scroll">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,7 +54,7 @@ const MyListings = () => {
               </p>
             </div>
           ) : (
-            <div className="bg-white shadow overflow-hidden rounded-lg">
+            <div className="bg-white shadow overflow-hidden rounded-lg ">
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-indigo-50">

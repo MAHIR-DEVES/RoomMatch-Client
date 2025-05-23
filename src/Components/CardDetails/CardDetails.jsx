@@ -11,11 +11,9 @@ const CardDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="max-w-5xl mx-auto my-10 p-6 bg-white rounded-2xl shadow-xl border border-gray-100 ">
-        {/* Header with image and title */}
+    <div className="flex justify-center items-center min-h-screen bg-gray-300 dark:bg-gray-800">
+      <div className="max-w-5xl mx-auto my-10 p-6  rounded-2xl shadow-xl border bg-gray-100 dark:bg-gray-300 border-gray-100 ">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Image section - larger and with better proportions */}
           <div className="md:w-2/5">
             <img
               src={post.photo}
@@ -24,9 +22,7 @@ const CardDetails = () => {
             />
           </div>
 
-          {/* Content section */}
           <div className="md:w-3/5">
-            {/* Title and room type badge */}
             <div className="mb-6">
               <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-2">
                 {post.roomType}
@@ -35,9 +31,7 @@ const CardDetails = () => {
               <p className="mt-3 text-gray-600 text-lg">{post.description}</p>
             </div>
 
-            {/* Details grid - two columns for better space utilization */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Location */}
               <div className="flex items-start">
                 <div className="bg-blue-50 p-2 rounded-lg mr-4">
                   <svg
