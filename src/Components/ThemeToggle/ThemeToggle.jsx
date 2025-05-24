@@ -36,7 +36,7 @@ const ThemeToggle = () => {
           className="p-2  text-black dark:text-white"
           onClick={toggleTheme}
         >
-          {theme === 'dark' ? <FiSun size={28} /> : <FaMoon size={28} />}
+          {theme === 'dark' ? <FiSun size={25} /> : <FaMoon size={25} />}
         </button>
       </div>
       <div className="hidden lg:flex">

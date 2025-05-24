@@ -76,26 +76,28 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 flex items-center justify-center p-4 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden"
+        className="w-full max-w-md bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300"
       >
         <div className="p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
               Create Account
             </h1>
-            <p className="text-gray-600">Join Hood Happenings today</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Join RoomMatch today
+            </p>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-4">
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Full Name
               </label>
@@ -104,7 +106,7 @@ const Register = () => {
                 name="name"
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:bg-gray-600 dark:text-white transition"
                 placeholder="John Doe"
               />
             </div>
@@ -112,7 +114,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="photoUrl"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Profile Photo URL
               </label>
@@ -121,7 +123,7 @@ const Register = () => {
                 name="photoUrl"
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:bg-gray-600 dark:text-white transition"
                 placeholder="https://example.com/photo.jpg"
               />
             </div>
@@ -129,7 +131,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Email Address
               </label>
@@ -138,7 +140,7 @@ const Register = () => {
                 name="email"
                 type="email"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:bg-gray-600 dark:text-white transition"
                 placeholder="your@email.com"
               />
             </div>
@@ -146,7 +148,7 @@ const Register = () => {
             <div className="relative">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Password
               </label>
@@ -155,20 +157,22 @@ const Register = () => {
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition pr-10"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:bg-gray-600 dark:text-white transition pr-10"
                 placeholder="••••••••"
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute right-3 top-10 text-gray-500 hover:text-gray-700"
+                className="absolute right-3 top-10 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               >
                 {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
               </button>
               {passwordError && (
-                <p className="mt-1 text-sm text-red-600">{passwordError}</p>
+                <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  {passwordError}
+                </p>
               )}
-              <div className="mt-2 text-xs text-gray-500">
+              <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                 Password must contain:
                 <ul className="list-disc pl-5 space-y-1">
                   <li>At least 6 characters</li>
@@ -180,7 +184,7 @@ const Register = () => {
 
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200 mt-4"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium py-3 px-4 rounded-lg transition duration-200 mt-4"
             >
               Register
             </button>
@@ -189,10 +193,10 @@ const Register = () => {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300"></div>
+                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+                <span className="px-2 bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400">
                   Or register with
                 </span>
               </div>
@@ -201,7 +205,7 @@ const Register = () => {
             <div className="mt-6">
               <button
                 onClick={handleGoogleLogin}
-                className="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-lg py-3 px-4 text-gray-700 hover:bg-gray-50 transition"
+                className="w-full flex items-center justify-center gap-2 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
               >
                 <FcGoogle size={20} />
                 <span>Continue with Google</span>
@@ -209,11 +213,11 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-center text-sm text-gray-600">
+          <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
             <Link
               to="/login"
-              className="font-medium text-indigo-600 hover:text-indigo-500 hover:underline"
+              className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 hover:underline"
             >
               Sign in
             </Link>

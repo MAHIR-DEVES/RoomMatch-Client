@@ -19,6 +19,8 @@ Tailwind CSS and DaisyUI.
 🔄 Real-time updates — Firebase ensures that data is synced in real-time without
 page reloads.
 
+🌙 Dark and Light Model
+
 🛠️ Tech Stack React 19
 
 React Router v7

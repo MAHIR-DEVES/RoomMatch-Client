@@ -111,13 +111,20 @@ const Navbar = () => {
               <>
                 <button
                   onClick={() => navigate('/login')}
-                  className={`bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ${
+                  className={`btn btn-sm bg-indigo-600 text-white transition duration-200 ${
                     pathname === '/login'
                       ? 'hover:bg-indigo-700 text-white'
                       : ''
                   }`}
                 >
                   Login
+                </button>
+                <button
+                  onClick={() => navigate('/register')}
+                  className="forTab hidden btn btn-sm bg-indigo-600 text-white transition duration-200 ml-2"
+                >
+                  {' '}
+                  Sign Up
                 </button>
 
                 <ThemeToggle></ThemeToggle>

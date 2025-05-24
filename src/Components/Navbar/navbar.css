@@ -32,3 +32,13 @@
     margin-right: 0;
   }
 }
+@media (max-width: 768px) {
+  .forTab {
+    display: flex;
+  }
+}
+@media (max-width: 700px) {
+  .forTab {
+    display: none;
+  }
+}
