@@ -1,7 +1,5 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Typewriter } from 'react-simple-typewriter';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -11,7 +9,6 @@ import { Pagination, Navigation, HashNavigation } from 'swiper/modules';
 
 import slide1 from '../../assets/slide 1.jpg';
 import slide2 from '../../assets/slide2.jpg';
-import TextAnimation from './TextAnimation';
 
 const Slider = () => {
   return (
@@ -39,14 +36,24 @@ const Slider = () => {
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center z-10 text-white p-8">
-            <h2 style={{ fontFamily: 'cursive' }}>
-              <TextAnimation></TextAnimation>
-
+            <h1 className="text-2xl md:text-5xl font-bold ">
+              Find Your Perfect Roommate{' '}
+              <span className="font-bold text-blue-400">
+                <Typewriter
+                  words={['in Minutes!', 'Without the Hassle!', 'In No Time!']}
+                  loop={0}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
               <p className="text-sm md:text-2xl md:mt-10">
                 Whether you're moving in or renting out, we make matching easy
                 and stress-free.
               </p>
-            </h2>
+            </h1>
           </div>
         </SwiperSlide>
         <SwiperSlide data-hash="slide1" className="relative">
@@ -55,16 +62,28 @@ const Slider = () => {
 
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 flex items-center justify-center z-10 text-white p-8">
-              <h2
-                style={{ fontFamily: 'cursive' }}
-                className="text-2xl md:text-5xl font-bold "
-              >
+              <h1 className="text-2xl md:text-5xl font-bold ">
                 Verified Profiles. Real People.{' '}
+                <span className="font-bold text-blue-400">
+                  <Typewriter
+                    words={[
+                      'With Zero Effort!"',
+                      'At Lightning Speed!',
+                      'Super Fast!',
+                    ]}
+                    loop={0}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </span>
                 <p className="text-sm md:text-2xl md:mt-10">
-                  : Browse trusted roommate listings with detailed profiles and
+                  Browse trusted roommate listings with detailed profiles and
                   secure chat.
                 </p>
-              </h2>
+              </h1>
             </div>
           </div>
         </SwiperSlide>
@@ -73,15 +92,23 @@ const Slider = () => {
             <img src={slide1} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 flex items-center justify-center z-10 text-white p-8">
-              <h2
-                style={{ fontFamily: 'cursive' }}
-                className="text-2xl md:text-5xl font-bold "
-              >
+              <h1 className="text-2xl md:text-5xl font-bold ">
                 Live Better, Together.{' '}
+                <span className="font-bold text-blue-400">
+                  <Typewriter
+                    words={['Hassle-Free!', 'Right Away!', 'No Waiting!']}
+                    loop={0}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </span>
                 <p className="text-sm md:text-2xl md:mt-10">
                   Share costs, experiences, and make new friends along the way.
                 </p>
-              </h2>
+              </h1>
             </div>
           </div>
         </SwiperSlide>
@@ -91,15 +118,27 @@ const Slider = () => {
             <img src={slide2} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 flex items-center justify-center z-10 text-white p-8">
-              <h2
-                style={{ fontFamily: 'cursive' }}
-                className="text-2xl md:text-5xl font-bold "
-              >
+              <h1 className="text-2xl md:text-5xl font-bold ">
                 Your Next Roommate is Just a Click Away!{' '}
+                <span className="font-bold text-blue-400">
+                  <Typewriter
+                    words={[
+                      'Super Fast!',
+                      'As Easy As It Gets!',
+                      'Start Instantly!',
+                    ]}
+                    loop={0}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </span>
                 <p className="text-sm md:text-2xl md:mt-10">
                   Join thousands already finding great places to live—together.
                 </p>
-              </h2>
+              </h1>
             </div>
           </div>
         </SwiperSlide>

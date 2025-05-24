@@ -78,7 +78,7 @@ const Navbar = () => {
         <div className=" hidden lg:flex ">
           <ul className="menu-horizontal px-1 navLink ">{links}</ul>
         </div>
-        <div className="flex  justify-between lg:hidden w-36 ">
+        <div className="flex  justify-between lg:hidden ">
           <div className="flex justify-center items-center ">
             {user && (
               <>
@@ -98,23 +98,36 @@ const Navbar = () => {
           </div>
           <div className="flex justify-center items-center">
             {user ? (
-              <button
-                onClick={handelLogout}
-                className="bg-indigo-600 font-medium py-1 px-3 rounded-lg transition duration-200 btn-sm text-white"
-              >
-                Logout
-              </button>
+              <>
+                <button
+                  onClick={handelLogout}
+                  className="bg-indigo-600 font-medium py-1 px-3 rounded-lg transition duration-200 btn-sm text-white"
+                >
+                  Logout
+                </button>
+                <ThemeToggle></ThemeToggle>
+              </>
             ) : (
-              <button
-                onClick={() => navigate('/login')}
-                className={`bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200btn-sm ${
-                  pathname === '/login' ? 'bg-indigo-600 text-white' : ''
-                }`}
-              >
-                Login
-              </button>
+              <>
+                <button
+                  onClick={() => navigate('/login')}
+                  className={`bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ${
+                    pathname === '/login'
+                      ? 'hover:bg-indigo-700 text-white'
+                      : ''
+                  }`}
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => navigate('/register')}
+                  className="bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ml-2"
+                >
+                  SignUp
+                </button>
+                <ThemeToggle></ThemeToggle>
+              </>
             )}
-            <ThemeToggle></ThemeToggle>
           </div>
         </div>
         <div className="flex hidden lg:flex gap-2">
@@ -137,12 +150,14 @@ const Navbar = () => {
           </div>
           <div>
             {user ? (
-              <button
-                onClick={handelLogout}
-                className=" bg-indigo-600 font-medium py-2 px-4 rounded-lg transition "
-              >
-                Logout
-              </button>
+              <>
+                <button
+                  onClick={handelLogout}
+                  className=" bg-indigo-600 font-medium py-2 px-4 rounded-lg transition "
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <>
                 <button

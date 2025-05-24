@@ -207,10 +207,10 @@ const Home = () => {
 
             <div className="mt-12 text-center">
               <button
-                onClick={() => navigate('/rooms')}
+                onClick={() => navigate('/browseListing')}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
               >
-                View All Available Rooms
+                View All Post
                 <svg
                   className="ml-3 -mr-1 h-5 w-5"
                   fill="currentColor"
@@ -260,10 +260,16 @@ const Home = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/20">
+                <button
+                  onClick={navigate('/browseListing')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/20"
+                >
                   Browse Roommates →
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white/10 py-3 px-8 text-lg font-medium rounded-md transition-all duration-300">
+                <button
+                  onClick={navigate('/myListings')}
+                  className="border-2 border-white text-white hover:bg-white/10 py-3 px-8 text-lg font-medium rounded-md transition-all duration-300"
+                >
                   List Your Room
                 </button>
               </div>
@@ -332,7 +338,7 @@ const Home = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes float {
           0% {
             transform: translateY(0px);
