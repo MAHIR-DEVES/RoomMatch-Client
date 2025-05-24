@@ -17,7 +17,7 @@ const Home = () => {
       <section className="py-12 lg:px-4 sm:px-6  lg:w-10/12 mx-auto ">
         <div className="text-center mb-12  bg-white dark:bg-gray-800">
           <span className="inline-block px-3 py-1 text-sm font-semibold text-red-600 bg-red-100 rounded-full mb-4">
-            Restaurants Events
+            Posts Events
           </span>
           <h2 className="text-4xl md:text-5xl font-bold dark:text-white text-black mb-4">
             Available Post Section

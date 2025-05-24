@@ -6,72 +6,20 @@ import './footer.css';
 import Swal from 'sweetalert2';
 
 const Footer = () => {
-  const { user } = React.useContext(AuthContext);
-
   const links = (
     <>
       <li>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? 'text-indigo-400'
-              : 'hover:text-indigo-300 transition-colors'
-          }
-        >
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? 'text-indigo-400'
-              : 'hover:text-indigo-300 transition-colors'
-          }
-        >
-          About
-        </NavLink>
+        <NavLink to="/addToFindRoommate">Add to Find Roommate</NavLink>
       </li>
       <li>
-        <NavLink
-          to="/blogs"
-          className={({ isActive }) =>
-            isActive
-              ? 'text-indigo-400'
-              : 'hover:text-indigo-300 transition-colors'
-          }
-        >
-          Blog
-        </NavLink>
+        <NavLink to="/browseListing">Browse Listing </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? 'text-indigo-400'
-              : 'hover:text-indigo-300 transition-colors'
-          }
-        >
-          Contact
-        </NavLink>
+        <NavLink to="/myListings">My Listings</NavLink>
       </li>
-      {user && (
-        <li>
-          <NavLink
-            to="/profile"
-            className={({ isActive }) =>
-              isActive
-                ? 'text-indigo-400 border '
-                : 'hover:text-indigo-300 transition-colors '
-            }
-          >
-            Profile
-          </NavLink>
-        </li>
-      )}
     </>
   );
 

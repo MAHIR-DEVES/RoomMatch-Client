@@ -37,29 +37,17 @@ const UpdatePosts = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleCheckboxChange = e => {
     const { value, checked } = e.target;
-    setFormData(prev => {
-      if (checked) {
-        return {
-          ...prev,
-          lifestylePreferences: [...prev.lifestylePreferences, value],
-        };
-      } else {
-        return {
-          ...prev,
-          lifestylePreferences: prev.lifestylePreferences.filter(
-            item => item !== value
-          ),
-        };
-      }
-    });
+    setFormData(prev => ({
+      ...prev,
+      lifestylePreferences: checked
+        ? [...prev.lifestylePreferences, value]
+        : prev.lifestylePreferences.filter(item => item !== value),
+    }));
   };
 
   const handleSubmit = async e => {
@@ -103,227 +91,252 @@ const UpdatePosts = () => {
     }
   };
 
-  TabTitle('Hood Happenings - Update data ');
+  TabTitle('Hood Happenings - Update data');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 md:px-6 py-12 flex flex-col justify-center">
-      <div className=" md:w-8/12 mx-auto p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          Update Roommate Listing Form
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="title">
-              Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              placeholder="Looking for a roommate in NYC"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
+    <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 py-8 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="max-w-4xl mx-auto">
+        {/* Form Card */}
+        <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          {/* Header */}
+          <div className="bg-indigo-600 dark:bg-indigo-700 px-6 py-4">
+            <h2 className="text-2xl font-bold text-white text-center">
+              Update Roommate Listing
+            </h2>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="location">
-              Location
-            </label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              placeholder="Neighborhood or address"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
+          {/* Form Content */}
+          <div className="p-6 space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Title */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  placeholder="Looking for a roommate in NYC"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="rentAmount">
-              Rent Amount ($)
-            </label>
-            <input
-              type="number"
-              id="rentAmount"
-              name="rentAmount"
-              value={formData.rentAmount}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
+              {/* Location */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="Neighborhood or address"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="roomType">
-              Room Type
-            </label>
-            <select
-              id="roomType"
-              name="roomType"
-              value={formData.roomType}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              {roomTypes.map(type => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
+              {/* Rent Amount */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Rent Amount ($)
+                </label>
+                <input
+                  type="number"
+                  name="rentAmount"
+                  value={formData.rentAmount}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2">
-              Lifestyle Preferences
-            </label>
-            <div className="grid grid-cols-2 gap-2">
-              {lifestyleOptions.map(option => (
-                <div key={option} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`pref-${option}`}
-                    value={option}
-                    checked={formData.lifestylePreferences.includes(option)}
-                    onChange={handleCheckboxChange}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label
-                    htmlFor={`pref-${option}`}
-                    className="ml-2 text-gray-700"
-                  >
-                    {option}
+              {/* Room Type */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Room Type
+                </label>
+                <select
+                  name="roomType"
+                  value={formData.roomType}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                >
+                  {roomTypes.map(type => (
+                    <option
+                      key={type}
+                      value={type}
+                      className="dark:bg-gray-700"
+                    >
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Lifestyle Preferences */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Lifestyle Preferences
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {lifestyleOptions.map(option => (
+                    <div key={option} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`pref-${option}`}
+                        value={option}
+                        checked={formData.lifestylePreferences.includes(option)}
+                        onChange={handleCheckboxChange}
+                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 dark:border-gray-600 rounded dark:bg-gray-600 dark:checked:bg-indigo-500"
+                      />
+                      <label
+                        htmlFor={`pref-${option}`}
+                        className="ml-2 text-gray-700 dark:text-gray-300"
+                      >
+                        {option}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Description
+                </label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  rows="4"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  placeholder="Tell potential roommates about the place, your preferences, etc."
+                ></textarea>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Contact Information
+                </label>
+                <input
+                  type="text"
+                  name="contactInfo"
+                  value={formData.contactInfo}
+                  onChange={handleChange}
+                  placeholder="Phone number"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
+
+              {/* Photo URL */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Photo URL
+                </label>
+                <input
+                  type="text"
+                  name="photo"
+                  value={formData.photo}
+                  onChange={handleChange}
+                  placeholder="Your photo URL"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
+
+              {/* Name */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:bg-gray-600 dark:text-white transition"
+                  required
+                />
+              </div>
+
+              {/* Email (readonly) */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={user.email}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-gray-100 dark:bg-gray-600 dark:text-gray-300 cursor-not-allowed"
+                  required
+                  readOnly
+                />
+              </div>
+
+              {/* Availability */}
+              <div>
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                  Availability
+                </label>
+                <div className="flex space-x-6">
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="availability"
+                      value="available"
+                      checked={formData.availability === 'available'}
+                      onChange={handleChange}
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 dark:text-indigo-400"
+                    />
+                    <span className="ml-2 text-gray-700 dark:text-gray-300">
+                      Available
+                    </span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="availability"
+                      value="not available"
+                      checked={formData.availability === 'not available'}
+                      onChange={handleChange}
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 dark:text-indigo-400"
+                    />
+                    <span className="ml-2 text-gray-700 dark:text-gray-300">
+                      Not Available
+                    </span>
                   </label>
                 </div>
-              ))}
-            </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                >
+                  Update Listing
+                </button>
+              </div>
+            </form>
           </div>
+        </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="description">
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Tell potential roommates about the place, your preferences, etc."
-            ></textarea>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="contactInfo">
-              Contact Information
-            </label>
-            <input
-              type="text"
-              id="contactInfo"
-              name="contactInfo"
-              value={formData.contactInfo}
-              onChange={handleChange}
-              placeholder="Phone number"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="photo">
-              Your photo
-            </label>
-            <input
-              type="text"
-              id="photo"
-              name="photo"
-              value={formData.photo}
-              onChange={handleChange}
-              placeholder="Your photo Url"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="name">
-              Your Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              placeholder="John Doe"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={user.email}
-              onChange={handleChange}
-              placeholder="your@email.com"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-              readOnly
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 mb-2">Availability</label>
-            <div className="flex items-center space-x-4">
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="availability"
-                  value="available"
-                  checked={formData.availability === 'available'}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span className="ml-2 text-gray-700">Available</span>
-              </label>
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="availability"
-                  value="not available"
-                  checked={formData.availability === 'not available'}
-                  onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span className="ml-2 text-gray-700">Not Available</span>
-              </label>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Update Listing
-          </button>
-        </form>
-      </div>
-
-      <div className="h-20 bg-purple-700 mt-16 rounded-t-xl text-2xl text-white flex items-center justify-center">
-        <h2 className="font-bold" style={{ fontFamily: '-moz-initial' }}>
-          RoomMatch{' '}
-        </h2>
+        {/* Footer */}
+        <div className="mt-8 bg-indigo-700 dark:bg-indigo-800 rounded-t-xl text-white py-4 text-center">
+          <h2 className="text-2xl font-bold">RoomMatch</h2>
+        </div>
       </div>
     </div>
   );

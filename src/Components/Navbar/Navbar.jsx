@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <div className="px-2 lg:px-0  bg-[#ffffff] dark:bg-[#2F2F2F] text-white shadow-sm py-5 md:py-6 ">
-      <div className="flex justify-between items-center md:w-11/12 md:mx-auto">
+      <div className="navMenu flex justify-between items-center lg:w-11/12 md:mx-auto">
         <div className="flex items-center ">
           <div className="dropdown mr-2">
             <div
@@ -66,10 +66,11 @@ const Navbar = () => {
             </ul>
           </div>
           <button
-            className="cursor-pointer text-xl dark:text-white text-black "
+            className="cursor-pointer text-xl dark:text-white text-black  font-semibold"
             onClick={() => navigate('/')}
           >
-            RoomMatch
+            <span className="font-serif font-bold text-blue-600">Room</span>
+            Match
           </button>
         </div>
 
@@ -82,7 +83,7 @@ const Navbar = () => {
             {user && (
               <>
                 <img
-                  className="w-10 rounded-full mr-4"
+                  className=" w-10 rounded-full mr-4"
                   src={user.photoURL || ''}
                   alt="Profile"
                   data-tooltip-id="mobile-profile-tooltip"
@@ -117,7 +118,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex hidden lg:flex gap-2">
-          <div className="flex justify-center items-center gap-4 mr-5">
+          <div className="navProfile flex justify-center items-center gap-4 mr-5">
             {user && (
               <>
                 <img
@@ -143,14 +144,24 @@ const Navbar = () => {
                 Logout
               </button>
             ) : (
-              <button
-                onClick={() => navigate('/login')}
-                className={`bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ${
-                  pathname === '/login' ? 'hover:bg-indigo-700 text-white' : ''
-                }`}
-              >
-                Login
-              </button>
+              <>
+                <button
+                  onClick={() => navigate('/login')}
+                  className={`bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ${
+                    pathname === '/login'
+                      ? 'hover:bg-indigo-700 text-white'
+                      : ''
+                  }`}
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => navigate('/register')}
+                  className="bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ml-2"
+                >
+                  SignUp
+                </button>
+              </>
             )}
           </div>
           <div className="hidden lg:flex">
