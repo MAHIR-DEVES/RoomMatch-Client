@@ -119,12 +119,7 @@ const Navbar = () => {
                 >
                   Login
                 </button>
-                <button
-                  onClick={() => navigate('/register')}
-                  className="bg-indigo-600 font-medium py-2 px-4 rounded-lg transition duration-200 ml-2"
-                >
-                  SignUp
-                </button>
+
                 <ThemeToggle></ThemeToggle>
               </>
             )}
