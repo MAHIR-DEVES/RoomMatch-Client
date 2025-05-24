@@ -59,7 +59,7 @@ const CardDetails = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-[#eef4ff] dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full lg:w-7/12 mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+      <div className=" w-full   lg:w-10/12 mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
         <div className="md:flex">
           {/* Image Section */}
           <div className="md:w-1/3">

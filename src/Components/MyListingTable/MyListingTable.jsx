@@ -75,6 +75,11 @@ const MyListingTable = ({ post, setMyPosts, myPosts }) => {
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm text-gray-900 dark:text-gray-100">
+          {post.roomType || 'unknown'}
+        </span>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
         <span
           className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
             ${
@@ -83,7 +88,7 @@ const MyListingTable = ({ post, setMyPosts, myPosts }) => {
                 : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
             }`}
         >
-          {post.roomType || 'unknown'}
+          {post.availability || 'unknown'}
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">

@@ -70,8 +70,12 @@ const MyListings = () => {
                       <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Location
                       </th>
+
                       <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Room Type
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
+                        Avertable
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Actions
