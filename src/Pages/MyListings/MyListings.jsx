@@ -29,61 +29,63 @@ const MyListings = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-100">
-        <div className="text-indigo-800 text-xl">Loading your listings...</div>
+      <div className="min-h-screen flex items-center justify-center bg-[#eef4ff] dark:bg-gray-800">
+        <div className="text-indigo-600 dark:text-indigo-400 text-xl">
+          Loading your listings...
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto scroll">
+    <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl font-bold text-indigo-800 mb-6">
-            My Listings {myPosts.length}
+          <h1 className="text-3xl font-bold text-indigo-700 dark:text-indigo-400 mb-6">
+            My Listings ({myPosts.length})
           </h1>
 
           {myPosts.length === 0 ? (
-            <div className="bg-white rounded-lg shadow p-6 text-center">
-              <p className="text-gray-600">
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow p-6 text-center">
+              <p className="text-gray-600 dark:text-gray-300">
                 You haven't created any listings yet.
               </p>
             </div>
           ) : (
-            <div className="bg-white shadow overflow-hidden rounded-lg ">
+            <div className="bg-white dark:bg-gray-700 shadow overflow-hidden rounded-lg transition-all duration-300">
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-indigo-50">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                  <thead className="bg-indigo-50 dark:bg-gray-600">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Title
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Price
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Location
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Room Type
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-indigo-800 dark:text-indigo-200 uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
                     {myPosts.map(tableData => (
                       <MyListingTable
                         key={tableData._id}
                         post={tableData}
                         myPosts={myPosts}
                         setMyPosts={setMyPosts}
-                      ></MyListingTable>
+                      />
                     ))}
                   </tbody>
                 </table>

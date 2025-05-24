@@ -19,11 +19,11 @@ const BrowseListing = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 mb-5 md:pb-0 md:py-12 md:px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         {/* Roommate Finder Hero Section */}
         <div className="hero py-8 lg:py-16 bg-indigo-50 dark:bg-gray-700 rounded-xl mb-12">
-          <div className="md:flex md:gap-5 justify-between w-full items-center">
+          <div className="md:flex md:gap-5 justify-between w-full items-center px-0 md:px-5">
             <div className="text-center lg:text-left mb-5 md:mb-0">
               <motion.h1
                 className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-6"
@@ -53,7 +53,7 @@ const BrowseListing = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <button
-                  className="md:px-3 px-8  bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                  className=" py-3 px-8  bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                   onClick={() => navigate('/myListings')}
                 >
                   List Your Space
@@ -89,7 +89,7 @@ const BrowseListing = () => {
             Latest From Our Post
           </motion.h1>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-4 ">
             {posts.map((post, index) => (
               <BrowseCard
                 post={post}
