@@ -13,6 +13,12 @@ import AddToFindRoommate from '../Pages/AddToFindRoommate/AddToFindRoommate';
 import BrowseListing from '../Pages/Browse/BrowseListing';
 import MyListings from '../Pages/MyListings/MyListings';
 import UpdatePosts from '../Pages/UpadtePost/UpdatePosts';
+import Dashboard from '../Layout/Dashboard/Dashboard';
+import DashboardInfo from '../Layout/Dashboard/DashPage/DashboardInfo';
+import AboutUs from '../Pages/AboutUs/AboutUs';
+import Contact from '../Pages/Contact/Contact';
+import Support from '../Pages/Support/Support';
+import DashProfile from '../Layout/DashProfile/DashProfile';
 
 const router = createBrowserRouter([
   {
@@ -28,14 +34,6 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/myListings',
-        element: (
-          <PrivateRoute>
-            <MyListings></MyListings>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: '/login',
         Component: Login,
       },
@@ -48,14 +46,7 @@ const router = createBrowserRouter([
         path: '/browseListing',
         Component: BrowseListing,
       },
-      {
-        path: '/addToFindRoommate',
-        element: (
-          <PrivateRoute>
-            <AddToFindRoommate></AddToFindRoommate>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: '/updatePosts/:id',
         element: (
@@ -80,7 +71,56 @@ const router = createBrowserRouter([
             `https://assigment-10-server-two.vercel.app/posts/${params.id}`
           ),
       },
-      {},
+      {
+        path: '/aboutUs',
+        Component: AboutUs,
+      },
+      {
+        path: '/Contact',
+        Component: Contact,
+      },
+      {
+        path: '/support',
+        Component: Support,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        Component: DashboardInfo,
+      },
+      {
+        path: 'myListings',
+        element: (
+          <PrivateRoute>
+            <MyListings></MyListings>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'addToFindRoommate',
+        element: (
+          <PrivateRoute>
+            <AddToFindRoommate></AddToFindRoommate>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'dashProfile',
+        element: (
+          <PrivateRoute>
+            <DashProfile></DashProfile>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

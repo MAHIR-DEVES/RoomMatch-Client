@@ -28,7 +28,7 @@ const Home = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-0">
           {data.map(card => (
             <Cards card={card} key={card._id} />
           ))}
@@ -368,6 +368,405 @@ const Home = () => {
           animation: float-delay 6s ease-in-out infinite;
         }
       `}</style>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold dark:text-white text-black sm:text-4xl">
+              What Our Users Say
+            </h2>
+            <p className="mt-3 max-w-2xl mx-auto text-xl dark:text-white text-black sm:mt-4">
+              Trusted by thousands of students and professionals
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="ml-4">
+                  <h4 className="font-bold dark:text-white">Sarah K.</h4>
+                  <p className="text-gray-500 dark:text-gray-400">Student</p>
+                </div>
+              </div>
+              <p className="dark:text-gray-300">
+                "Found my perfect roommate in 2 days! The matching system really
+                understands preferences."
+              </p>
+              <div className="flex mt-3">
+                {[...Array(5)].map((_, i) => (
+                  <FaRegStarHalfStroke
+                    key={i}
+                    className="w-4 h-4 text-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="ml-4">
+                  <h4 className="font-bold dark:text-white">Alex M.</h4>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Software Engineer
+                  </p>
+                </div>
+              </div>
+              <p className="dark:text-gray-300">
+                "Saved me from awkward interviews. My roommate and I share the
+                same work schedule!"
+              </p>
+              <div className="flex mt-3">
+                {[...Array(5)].map((_, i) => (
+                  <FaRegStarHalfStroke
+                    key={i}
+                    className="w-4 h-4 text-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="User"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="ml-4">
+                  <h4 className="font-bold dark:text-white">Priya R.</h4>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Graphic Designer
+                  </p>
+                </div>
+              </div>
+              <p className="dark:text-gray-300">
+                "As an introvert, I appreciate the detailed filters. Found
+                someone who respects quiet hours!"
+              </p>
+              <div className="flex mt-3">
+                {[...Array(4)].map((_, i) => (
+                  <FaRegStarHalfStroke
+                    key={i}
+                    className="w-4 h-4 text-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/*  How It Works */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold dark:text-white text-black sm:text-4xl">
+              Find a Roommate in 3 Steps
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="text-center p-6">
+              <div className="bg-indigo-100 dark:bg-indigo-900 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                <span className="text-indigo-600 dark:text-indigo-300 text-2xl font-bold">
+                  1
+                </span>
+              </div>
+              <h3 className="text-xl font-bold dark:text-white mb-2">
+                Create a Profile
+              </h3>
+              <p className="dark:text-gray-300">
+                Share your lifestyle, budget, and preferences to help us match
+                you accurately.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="text-center p-6">
+              <div className="bg-indigo-100 dark:bg-indigo-900 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                <span className="text-indigo-600 dark:text-indigo-300 text-2xl font-bold">
+                  2
+                </span>
+              </div>
+              <h3 className="text-xl font-bold dark:text-white mb-2">
+                Browse Matches
+              </h3>
+              <p className="dark:text-gray-300">
+                View compatible roommates or listings based on your criteria.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="text-center p-6">
+              <div className="bg-indigo-100 dark:bg-indigo-900 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                <span className="text-indigo-600 dark:text-indigo-300 text-2xl font-bold">
+                  3
+                </span>
+              </div>
+              <h3 className="text-xl font-bold dark:text-white mb-2">
+                Connect Safely
+              </h3>
+              <p className="dark:text-gray-300">
+                Message through our platform and meet only when comfortable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Safety Tips Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold dark:text-white text-black sm:text-4xl">
+              Roommate Safety Tips
+            </h2>
+            <p className="mt-3 max-w-2xl mx-auto text-xl dark:text-white text-black sm:mt-4">
+              Your safety is our priority
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Tip 1 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="text-indigo-600 dark:text-indigo-400 mb-3">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-bold dark:text-white mb-2">
+                Verify Profiles
+              </h3>
+              <p className="dark:text-gray-300">
+                Look for verified badges and linked social media accounts.
+              </p>
+            </div>
+
+            {/* Tip 2 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="text-indigo-600 dark:text-indigo-400 mb-3">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-bold dark:text-white mb-2">
+                Meet in Public First
+              </h3>
+              <p className="dark:text-gray-300">
+                Always arrange the first meeting in a café or campus.
+              </p>
+            </div>
+
+            {/* Tip 3 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="text-indigo-600 dark:text-indigo-400 mb-3">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-bold dark:text-white mb-2">
+                Secure Payments
+              </h3>
+              <p className="dark:text-gray-300">
+                Use our platform for deposits to avoid scams.
+              </p>
+            </div>
+
+            {/* Tip 4 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="text-indigo-600 dark:text-indigo-400 mb-3">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="font-bold dark:text-white mb-2">
+                Trust Your Instincts
+              </h3>
+              <p className="dark:text-gray-300">
+                If something feels off, don’t hesitate to say no.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* offer Section */}
+      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-800 dark:to-purple-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto">
+            {/* Badge */}
+            <span className="inline-block px-3 py-1 text-xs font-bold text-indigo-600 bg-white rounded-full mb-4 uppercase tracking-wider">
+              Limited Time Offer
+            </span>
+
+            {/* Heading */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Get <span className="text-yellow-300">50% Off</span> on Premium
+            </h2>
+
+            {/* Description */}
+            <p className="text-lg text-indigo-100 mb-8">
+              Upgrade today and unlock priority listings, verified badges, and
+              unlimited messages. Offer ends{' '}
+              <span className="font-bold">June 30</span>!
+            </p>
+
+            {/* CTA Button & Timer */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={() => navigate('/premium')}
+                className="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg hover:scale-105"
+              >
+                Claim Your Discount →
+              </button>
+
+              {/* Countdown Timer */}
+              <div className="flex items-center gap-2 bg-black/20 px-4 py-2 rounded-lg">
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span className="text-white font-mono">
+                  <span className="font-bold">07</span>d :
+                  <span className="font-bold">23</span>h :
+                  <span className="font-bold">59</span>m
+                </span>
+              </div>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="mt-8 flex flex-wrap justify-center items-center gap-4 text-indigo-100 text-sm">
+              <div className="flex items-center">
+                <svg
+                  className="w-4 h-4 mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Verified Profiles
+              </div>
+              <div className="flex items-center">
+                <svg
+                  className="w-4 h-4 mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Secure Payments
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Cities We Serve */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold dark:text-white text-black sm:text-4xl">
+              Popular Cities
+            </h2>
+            <p className="mt-3 max-w-2xl mx-auto text-xl dark:text-white text-black sm:mt-4">
+              Find roommates and listings in these hotspots
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              'New York',
+              'Los Angeles',
+              'Chicago',
+              'Austin',
+              'Seattle',
+              'Boston',
+            ].map(city => (
+              <div
+                key={city}
+                className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md text-center hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                onClick={() =>
+                  navigate(`/browseListing?city=${city.toLowerCase()}`)
+                }
+              >
+                <h3 className="font-bold dark:text-white">{city}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  100+ listings
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

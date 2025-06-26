@@ -87,7 +87,7 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide data-hash="slide1" className="relative">
+        <SwiperSlide data-hash="slide2" className="relative">
           <div className="relative w-full h-full">
             <img src={slide1} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/40"></div>
@@ -113,7 +113,7 @@ const Slider = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide data-hash="slide2" className="relative">
+        <SwiperSlide data-hash="slide3" className="relative">
           <div className="relative w-full h-full">
             <img src={slide2} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/40"></div>

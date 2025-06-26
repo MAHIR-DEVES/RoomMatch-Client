@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa6';
 import './footer.css';
 import Swal from 'sweetalert2';

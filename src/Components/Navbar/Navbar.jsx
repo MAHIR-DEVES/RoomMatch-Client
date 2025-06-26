@@ -17,15 +17,24 @@ const Navbar = () => {
       <li className="dark:text-white text-black">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="dark:text-white text-black">
-        <NavLink to="/addToFindRoommate">Add to Find Roommate</NavLink>
-      </li>
+
       <li className="dark:text-white text-black">
         <NavLink to="/browseListing">Browse Listing </NavLink>
       </li>
       <li className="dark:text-white text-black">
-        <NavLink to="/myListings">My Listings</NavLink>
+        <NavLink to="/aboutUs">About us</NavLink>
       </li>
+      <li className="dark:text-white text-black">
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+      <li className="dark:text-white text-black">
+        <NavLink to="/support">Support</NavLink>
+      </li>
+      {user && (
+        <li className="dark:text-white text-black">
+          <NavLink to={'/dashboard'}>Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -69,7 +78,7 @@ const Navbar = () => {
             className="cursor-pointer text-xl dark:text-white text-black  font-semibold"
             onClick={() => navigate('/')}
           >
-            <span className="font-serif font-bold text-blue-600">Room</span>
+            <span className="font-serif font-bold text-blue-600">🏠 Room</span>
             Match
           </button>
         </div>
