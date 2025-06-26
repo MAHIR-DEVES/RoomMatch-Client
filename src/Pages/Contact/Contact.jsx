@@ -48,9 +48,7 @@ const Contact = () => {
                     Phone
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    <a href="tel:+18005551234" className="hover:underline">
-                      +1 (800) 555-1234
-                    </a>
+                    <a>+1 (800) 555-1234</a>
                     <br />
                     Mon-Fri, 9AM-5PM EST
                   </p>
@@ -66,12 +64,7 @@ const Contact = () => {
                     Email
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    <a
-                      href="mailto:hello@roommatch.com"
-                      className="hover:underline"
-                    >
-                      hello@roommatch.com
-                    </a>
+                    <a className="hover:underline">hello@roommatch.com</a>
                     <br />
                     Response within 24 hours
                   </p>
@@ -90,7 +83,6 @@ const Contact = () => {
                     {['Twitter', 'Instagram', 'Facebook'].map(platform => (
                       <a
                         key={platform}
-                        href={`https://${platform.toLowerCase()}.com/roommatch`}
                         className="bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-md text-sm hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors"
                       >
                         {platform}
@@ -172,6 +164,7 @@ const Contact = () => {
               </div>
 
               <button
+                onClick={e => e.preventDefault()}
                 type="submit"
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-300"
               >

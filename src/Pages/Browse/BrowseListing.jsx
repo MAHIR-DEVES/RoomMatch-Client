@@ -23,7 +23,7 @@ const BrowseListing = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/toggleAscending', {
+      .get('https://assigment-10-server-two.vercel.app/toggleAscending', {
         params: {
           toggle: toggle,
         },
@@ -36,7 +36,7 @@ const BrowseListing = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/toggleAvailable', {
+      .get('https://assigment-10-server-two.vercel.app/toggleAvailable', {
         params: {
           availability: availability,
         },

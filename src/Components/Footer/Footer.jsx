@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
         <div className="h-20 bg-purple-700 mt-16 rounded-t-xl text-2xl text-white flex items-center justify-center">
           <h2 className="font-bold" style={{ fontFamily: '-moz-initial' }}>
-            RoomMatch{' '}
+            🏠 RoomMatch{' '}
           </h2>
         </div>
       </div>
