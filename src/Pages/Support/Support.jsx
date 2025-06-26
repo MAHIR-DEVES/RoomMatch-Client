@@ -24,7 +24,6 @@ const Support = () => {
               ),
               title: 'FAQs',
               desc: 'Browse common questions',
-              link: '/faq',
             },
             {
               icon: (
@@ -32,7 +31,6 @@ const Support = () => {
               ),
               title: 'Guides',
               desc: 'Step-by-step tutorials',
-              link: '/guides',
             },
             {
               icon: (
@@ -40,7 +38,6 @@ const Support = () => {
               ),
               title: 'Live Chat',
               desc: 'Instant messaging support',
-              link: '/chat',
             },
             {
               icon: (
@@ -48,12 +45,10 @@ const Support = () => {
               ),
               title: 'Status',
               desc: 'Service uptime monitor',
-              link: '/status',
             },
           ].map((item, index) => (
             <a
               key={index}
-              href={item.link}
               className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1 text-center"
             >
               <div className="mb-4">{item.icon}</div>
@@ -103,10 +98,7 @@ const Support = () => {
             ))}
           </div>
           <div className="mt-6 text-center">
-            <a
-              href="/faq"
-              className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
-            >
+            <a className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
               View all FAQs →
             </a>
           </div>
@@ -124,16 +116,10 @@ const Support = () => {
               (9AM-5PM EST).
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="mailto:support@roommatch.com"
-                className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
-              >
+              <a className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
                 Email Us
               </a>
-              <a
-                href="tel:+18005551234"
-                className="bg-black/20 px-6 py-3 rounded-lg font-medium hover:bg-black/30 transition-colors"
-              >
+              <a className="bg-black/20 px-6 py-3 rounded-lg font-medium hover:bg-black/30 transition-colors">
                 Call Support
               </a>
             </div>
