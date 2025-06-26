@@ -261,13 +261,13 @@ const Home = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button
-                  onClick={navigate('/browseListing')}
+                  onClick={() => navigate('/browseListing')}
                   className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/20"
                 >
                   Browse Roommates →
                 </button>
                 <button
-                  onClick={navigate('/myListings')}
+                  onClick={() => navigate('/myListings')}
                   className="border-2 border-white text-white hover:bg-white/10 py-3 px-8 text-lg font-medium rounded-md transition-all duration-300"
                 >
                   List Your Room

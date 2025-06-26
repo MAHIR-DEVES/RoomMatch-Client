@@ -23,6 +23,7 @@ const AddToFindRoommate = () => {
     photo: '',
     likeCount: 0,
   });
+  console.log(formData);
 
   const roomTypes = ['Single', 'Shared', 'Studio', 'Other'];
   const lifestyleOptions = [
@@ -73,7 +74,7 @@ const AddToFindRoommate = () => {
             title: 'Listing created successfully!',
             showConfirmButton: false,
             timer: 1500,
-          }).then(() => navigate('/myListings'));
+          }).then(() => navigate('/dashboard/myListings'));
         }
       })
       .catch(error => {

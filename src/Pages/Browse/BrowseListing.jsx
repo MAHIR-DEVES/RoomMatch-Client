@@ -4,11 +4,14 @@ import { FaRegHeart } from 'react-icons/fa';
 import { TabTitle } from '../../Layouts/Utils/DynamicTitle/DynamicTitle';
 import BrowseCard from '../../Components/BrowseCard/BrowseCard';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const BrowseListing = () => {
   TabTitle('Hood Happenings - Browse Listing');
 
   const [posts, setPosts] = useState([]);
+  const [toggle, setToggle] = useState(1);
+  const [availability, setAvailability] = useState('available');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +20,36 @@ const BrowseListing = () => {
       .then(data => setPosts(data))
       .catch(err => console.error('Failed to load blog data:', err));
   }, []);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/toggleAscending', {
+        params: {
+          toggle: toggle,
+        },
+      })
+      .then(res => setPosts(res?.data))
+      .catch(err => {
+        console.log(err);
+      });
+  }, [toggle]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/toggleAvailable', {
+        params: {
+          availability: availability,
+        },
+      })
+      .then(res => {
+        setPosts(res?.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, [availability]);
+
+  console.log(availability);
 
   return (
     <div className="min-h-screen bg-[#eef4ff] dark:bg-gray-800 mb-5 md:pb-0 md:py-12 md:px-4 sm:px-6 lg:px-8 transition-colors duration-300">
@@ -89,13 +122,64 @@ const BrowseListing = () => {
             Latest From Our Post
           </motion.h1>
 
+          <div className="flex justify-between pb-5">
+            <div className=""></div>
+            <div className="flex items-center gap-4 ">
+              <button
+                onClick={() => setToggle(toggle === 1 ? -1 : 1)}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors shadow-sm"
+              >
+                {toggle === 1 ? 'Ascending ↑' : 'Descending ↓'}
+              </button>
+
+              <div className="dropdown relative">
+                <button
+                  tabIndex={0}
+                  role="button"
+                  className="px-4 py-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg shadow-sm flex items-center gap-2"
+                >
+                  Filter Posts
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content absolute top-12 right-0 menu rounded-lg w-52 p-2 shadow-lg bg-white border border-gray-100 z-10"
+                >
+                  <li className="hover:bg-gray-50 rounded-md">
+                    <span
+                      onClick={() => setAvailability('available')}
+                      className="block px-4 py-2 text-gray-700 hover:text-indigo-600 cursor-pointer"
+                    >
+                      Available Posts
+                    </span>
+                  </li>
+                  <li className="hover:bg-gray-50 rounded-md">
+                    <span
+                      onClick={() => setAvailability('not available')}
+                      className="block px-4 py-2 text-gray-700 hover:text-indigo-600 cursor-pointer"
+                    >
+                      All Posts
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-4 ">
             {posts.map((post, index) => (
-              <BrowseCard
-                post={post}
-                key={post._id}
-                index={index % 6} // Keep animation staggered
-              />
+              <BrowseCard post={post} key={post._id} index={index % 6} />
             ))}
           </div>
         </motion.div>

@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import { Outlet } from 'react-router';
 import Sidebar from './Sidebar';
 import DashNavbar from './DashNavbar';
+import { motion } from 'framer-motion';
 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -33,20 +34,24 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content with Sidebar */}
-      <div className="flex">
+      <div className="flex relative ">
         {/* Sticky Sidebar */}
         {sidebar && (
           <>
-            <div className="md:w-[20%]">
+            <motion.div
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              className="md:w-[20%] absolute lg:static left-0 "
+            >
               <div className="sticky top-16 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 shadow-xl overflow-y-auto">
                 <Sidebar />
               </div>
-            </div>
+            </motion.div>
           </>
         )}
 
         {/* Main Outlet */}
-        <div className="md:w-[80%] p-4">
+        <div className="md:w-[80%] p-4 ">
           <Outlet />
         </div>
       </div>
